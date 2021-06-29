@@ -1,0 +1,22 @@
+[Unit]
+Description=Medical Report Loader
+ConditionPathExists=/opt/mru
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+LimitNOFILE=1024
+
+Restart=on-failure
+RestartSec=10
+startLimitIntervalSec=60
+# Environment="PKG_CONFIG_PATH=/opt/mru"
+# Environment="LD_LIBRARY_PATH=/opt/mru"
+
+WorkingDirectory=/opt/mru
+ExecStart=/opt/mru/mru
+
+[Install]
+WantedBy=multi-user.target

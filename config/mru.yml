@@ -1,0 +1,28 @@
+institution:
+    id: 5e2995845f9ab33e3c17890e
+database:
+    host: 10.92.0.10
+    port: 1521
+    db: RAD
+    user: viewmed
+    passwd: viewmed
+service:
+    uri: https://dev.viewmedonline.com
+    port: 8443
+    endpoint: /medical/report/upload
+    auth: VJQjd8qjaTWhIYAEVrBAqCqnEoxBChBBNqyoRsgNZlIeBbsLLZFMDpktss3b
+    agent: PCM
+    active: False   # True | False
+systemLog:
+    level: 2   # UNSPECIFIED=0 | TRACE=1 | INFO=2 | WARNING=3 | ERROR=4
+    path: ./logs/mru.log 
+#proxy:
+#    host: #http://10.100.100.15
+#    port: #8080
+#    user: sefuros
+#    passwd: sefuros123
+timer:
+    getprocedure: 60    # measured in seconds
+    upprocedure: 90     # measured in seconds
+    getreport: 60       # measured in seconds
+    upreport: 180       # measured in seconds

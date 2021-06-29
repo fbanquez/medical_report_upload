@@ -1,0 +1,29 @@
+
+- The mru.service file must be placed into /lib/systemd/system/ path with 755 permission.
+- The oracle instantclient library must be installed and configured as follows:
+  
+  - sudo apt-get install libaio1
+  
+  - alien -i oracle-instantclient-basic-21.1.0.0.0-1.x86_64.rpm
+    alien -i oracle-instantclient-devel-21.1.0.0.0-1.x86_64.rpm
+    alien -i oracle-instantclient-jdbc-21.1.0.0.0-1.x86_64.rpm
+    alien -i oracle-instantclient-odbc-21.1.0.0.0-1.x86_64.rpm
+    alien -i oracle-instantclient-precomp-21.1.0.0.0-1.x86_64.rpm
+    alien -i oracle-instantclient-sqlplus-21.1.0.0.0-1.x86_64.rpm
+    alien -i oracle-instantclient-tools-21.1.0.0.0-1.x86_64.rpm
+    
+  - Add into ~/.profile file 
+    export LD_LIBRARY_PATH=/usr/lib/oracle/21/client64/lib/:$LD_LIBRARY_PATH
+    export ORACLE_HOME=/usr/lib/oracle/21/client64
+    export PATH=$PATH:/usr/local/go/bin:$ORACLE_HOME/bin
+ 
+  - sudo systemctl reboot
+
+  - sudo ln -s /usr/include/oracle/21/client64 $ORACLE_HOME/include
+  
+  - sudo chmod o+r /etc/ld.so.conf.d/oracle.conf
+  
+  - sudo ldconfig
+  
+  - Testing calling sqlplus command
+
